@@ -2,7 +2,7 @@ import {makeStyles} from "@material-ui/core/styles";
 import {Grid, Paper} from "@material-ui/core";
 import StaffToolBar from "./StaffToolBar";
 import StaffTable from "./StaffTable";
-import EmployeeForm from "./EmployeeForm";
+import EmployeeForm from "./EmployeeForm/EmployeeForm";
 import React from "react";
 
 const useStyles = makeStyles((theme) => ({
@@ -20,8 +20,10 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
+
 const StaffPage = () => {
     const classes = useStyles();
+
     return (
         <div className={classes.root}>
             <Grid container spacing={3}>
@@ -35,7 +37,7 @@ const StaffPage = () => {
                     <StaffTable>
                     </StaffTable>
                 </Grid>
-                <Grid container item sm={6}>
+                <Grid container item={true} sm={6}>
                     <Paper className={classes.paper}>
                         <EmployeeForm>
                         </EmployeeForm>
