@@ -15,6 +15,22 @@
       "position": "Зам. директора",
       "sex": "female",
       "working": false
+    },
+    {
+      "id": 3,
+      "name": "Игов Виктор Степанович",
+      "date": "",
+      "position": "Зам. директора",
+      "sex": "male",
+      "fired": false
+    },
+    {
+      "id": 4,
+      "name": "Резухин Виталий Дмитриевич",
+      "date": "1998-08-13",
+      "position": "Директор",
+      "sex": "male",
+      "fired": false
     }
   ]
 }

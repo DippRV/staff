@@ -21,7 +21,7 @@ const staffReducer = (state = initialState, action) => {
         case UPDATE_EMPLOYEE:
             return {...state, staff: state.staff.map(employee => employee.id === action.employee.id ? action.employee : employee)};
         case SELECT_EMPLOYEE:
-            if (state.selectedEmployee && state.selectedEmployee.id === action.employee.id)
+            if (!action.employee || (state.selectedEmployee && state.selectedEmployee.id === action.employee.id))
                 return {...state, selectedEmployee: null};
             return {...state, selectedEmployee: action.employee};
         default:
