@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const URL_STAFF = 'http://localhost:3000/staff';
+const URL_STAFF_POSITIONS = 'http://localhost:3000/positions'
 
 const URL_EMPLOYEE = (employee) => {
     return URL_STAFF + `/${employee.id}/`;
@@ -26,11 +27,17 @@ const UpdateEmployee = (employee) => {
         .catch(() => null);
 }
 
+const GetPositions = () => {
+    return axios.get(URL_STAFF_POSITIONS).then(resp => resp.data)
+        .catch(() => null);
+}
+
 const DAL_STAFF = {
     Get: GetStaff,
     Add: AddEmployee,
     Delete: DeleteEmployee,
-    Update: UpdateEmployee
+    Update: UpdateEmployee,
+    GetPositions: GetPositions
 };
 
 export default DAL_STAFF;

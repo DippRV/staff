@@ -9,28 +9,43 @@
       "working": true
     },
     {
-      "id": 2,
-      "date": "1997-05-08",
       "name": "Мокрушина Галина Юрьевна",
-      "position": "Зам. директора",
+      "date": "1997-05-08",
+      "position": "Консультант",
       "sex": "female",
-      "working": false
+      "id": 2
     },
     {
-      "id": 3,
       "name": "Игов Виктор Степанович",
       "date": "",
-      "position": "Зам. директора",
+      "position": "Кассир",
       "sex": "male",
-      "fired": false
+      "fired": false,
+      "id": 3
     },
     {
-      "id": 4,
       "name": "Резухин Виталий Дмитриевич",
       "date": "1998-08-13",
-      "position": "Директор",
+      "position": "Грузчик",
       "sex": "male",
-      "fired": false
+      "fired": false,
+      "id": 4
+    },
+    {
+      "id": 5,
+      "name": "чоп",
+      "date": "2123-03-21",
+      "position": "Менеджер",
+      "sex": "female",
+      "fired": true
     }
+  ],
+  "positions": [
+    "Директор",
+    "Зам. директора",
+    "Кассир",
+    "Консультант",
+    "Грузчик",
+    "Менеджер"
   ]
 }

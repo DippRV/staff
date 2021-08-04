@@ -1,15 +1,12 @@
+import Paper from "@material-ui/core/Paper";
 import Table from "@material-ui/core/Table";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
 import TableBody from "@material-ui/core/TableBody";
 import TableContainer from "@material-ui/core/TableContainer";
-import React, {useEffect} from "react";
+import React from "react";
 import {makeStyles} from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
-import {useDispatch, useSelector} from "react-redux";
-import {GetStaffAC, SelectEmployeeAC} from "../store/reducers/staffReducer";
-import DAL_STAFF from "../DAL/Staff";
 
 const useStyles = makeStyles((theme) => ({
     table: {
@@ -17,36 +14,8 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-const StaffTable = () => {
-
+const StaffTableView = ({staff, selectedEmployee, SelectEmployee}) => {
     const classes = useStyles();
-    const {staff, selectedEmployee} = useSelector(state => state.staff);
-    const dispatch = useDispatch();
-
-    const GetStaff = () => {
-        return (dispatch) => {
-            (async () => {
-                dispatch(GetStaffAC(await DAL_STAFF.Get()));
-            })();
-        }
-    }
-
-    const SelectEmployee = (employee) => {
-        return () => {
-            dispatch(SelectEmployeeAC(employee));
-        }
-    }
-
-    useEffect(() => {
-        try {
-            dispatch(GetStaff());
-        }
-        catch (e) {
-            console.log('Server Error');
-        }
-
-    },[dispatch])
-
     return (
         <TableContainer component={Paper} >
             <Table className={classes.table} aria-label="simple table">
@@ -74,7 +43,7 @@ const StaffTable = () => {
                 </TableBody>
             </Table>
         </TableContainer>
-    );
+    )
 }
 
-export default StaffTable;
+export default StaffTableView;

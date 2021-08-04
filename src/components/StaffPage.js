@@ -1,9 +1,10 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {Grid, Paper} from "@material-ui/core";
-import StaffToolBar from "./StaffToolBar";
-import StaffTable from "./StaffTable";
+import StaffToolBar from "./StaffToolBar/StaffToolBar";
+import StaffTable from "./StaffTable/StaffTable";
 import EmployeeForm from "./EmployeeForm/EmployeeForm";
-import React from "react";
+import React, {useEffect, useState} from "react";
+import DAL_STAFF from "../DAL/Staff";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -20,16 +21,32 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
+const sexOptions = [
+    {key: "Женский", value: "female"},
+    {key: "Мужской", value: "male"}
+]
 
 const StaffPage = () => {
     const classes = useStyles();
+
+    let [positions, setPositions ]  = useState(null);
+
+    useEffect(() => {
+        (async () => {
+            let result = await DAL_STAFF.GetPositions();
+            if (result) {
+                setPositions(prev => result);
+            }
+        })();
+
+    }, [])
 
     return (
         <div className={classes.root}>
             <Grid container spacing={3}>
                 <Grid item xs={12}>
                     <Paper className={classes.paper}>
-                        <StaffToolBar>
+                        <StaffToolBar positions={positions} sexOptions={sexOptions}>
                         </StaffToolBar>
                     </Paper>
                 </Grid>
@@ -39,7 +56,7 @@ const StaffPage = () => {
                 </Grid>
                 <Grid container item={true} sm={6}>
                     <Paper className={classes.paper}>
-                        <EmployeeForm>
+                        <EmployeeForm positions={positions} sexOptions={sexOptions}>
                         </EmployeeForm>
                     </Paper>
                 </Grid>
