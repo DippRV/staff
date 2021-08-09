@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const URL_STAFF = 'http://localhost:3000/staff';
-const URL_STAFF_POSITIONS = 'http://localhost:3000/positions'
+const URL_STAFF = 'https://my-json-server.typicode.com/DippRV/staff-db/staff';
+const URL_STAFF_POSITIONS = 'https://my-json-server.typicode.com/DippRV/staff-db/positions'
 
 const URL_EMPLOYEE = (employee) => {
     return URL_STAFF + `/${employee.id}/`;
